@@ -1,0 +1,107 @@
+body {
+    background-image: url(./img/background.png);
+    height:100vh;
+    background-size: 50% 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.bookcase {
+    width: 50%;
+    height: 80%;
+    background-color: #936A42;
+    box-shadow: 0px 20px 40px 20px rgba(19, 18, 18, 0.59);
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    padding:3em;
+    gap:1em;
+    border-radius: 2em;
+}
+
+.bookshelf {
+    background-color: #61452a;
+    display: grid;
+    grid-template-columns: 1fr 50px 50px;
+    gap: 1em;
+    padding: 1em;
+}
+
+.bookshelf>div:first-child {
+    grid-column: 1 / 4;
+}
+
+.read-button {
+    background-color: green;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.delete-button {
+    background-color: red;
+    grid-area: 2 / 3 / 3 / 4;
+    content: "X";
+}
+
+.book-read::before {
+    content: "YAY";
+}
+
+.book-unread::after {
+    content: "BOO!";
+}
+
+.delete-button,
+.read-button {
+    height: 50px;
+    width: 50px;
+    align-self: end;
+    justify-self: end;
+}
+
+.bookshelf>button {
+    height:100%;
+    width: 100%;
+    border-radius: 1em;
+    background-color: #965a22;
+    opacity: 80%;
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    grid-area: span 2 / span 3;
+}
+
+::backdrop {
+    background-color: grey;
+    opacity: 80%;
+}
+
+dialog {
+    padding: 2em;
+    background-color: #965a22;
+    border: #61452a solid 3px;
+    border-radius: 2em;
+}
+
+dialog>form {
+    display: grid;
+    grid-template: repeat(5, 1fr) / 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+
+dialog>form>p>label {
+    margin-right: 2em;
+}
+
+dialog>form>p {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+

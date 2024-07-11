@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer> </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <dialog>
+        <form action="dialog">
+            <p><label for="title">Book Title: </label><input type="text" required id="title" name="booktitle"></p>
+            <p><label for="author">Author: </label><input type="text" required id="author" name="author"></p>
+            <p><label for="pages">Pages: </label><input type="number" required min="1" name="pages" id="pages"></p>
+            <p><label for="read">Read? </label><input type="checkbox" name="read" id="read"></p>
+            <button id="cancel" type="reset">Cancel</button>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </dialog>
+    <div class="bookcase">
+    </div>
+</body>
+</html>
