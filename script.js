@@ -2,7 +2,8 @@ let myLibrary = [];
 
 const bookPrototype = {
     info() {
-        return this.title + " by " + this.author + ", " + this.pages + " pages. " + (this.read ? "Read." : "Not read yet.");
+        return this.title + " by " + this.author 
+        // + ", " + this.pages + " pages. " + (this.read ? "Read." : "Not read yet.");
     },
     toggleRead() {
         this.read = !this.read;
@@ -43,6 +44,9 @@ const readInput = document.getElementById("read")
 const allInputs = document.querySelectorAll("input")
 const cancelButton = document.getElementById("cancel")
 const submitButton = document.getElementById("submit")
+const libraryTitle = document.createElement("div")
+const libraryTitleText = document.createTextNode("The Library")
+libraryTitle.appendChild(libraryTitleText);
 
 const closeDialog = () => {
     allInputs.forEach((input) => {
@@ -76,6 +80,7 @@ submitButton.addEventListener("click", (e) => {
 
 const draw = () => {
     bookCase.innerHTML = "";
+    bookCase.appendChild(libraryTitle);
 
     //add each book to a shelf
     myLibrary.forEach((book) => {
@@ -123,6 +128,13 @@ const draw = () => {
     //         bookshelf.classList.add("bookshelf")
     //         bookCase.appendChild(bookshelf);
     // }
+
+    const numberOfShelves = 14 - myLibrary.length;
+    for (let i = 0; i < numberOfShelves; i++) {
+        const bookshelf = document.createElement("div")
+        bookshelf.classList.add("bookshelf")
+        bookCase.appendChild(bookshelf)
+    }
 }
 
 
@@ -142,7 +154,10 @@ draw();
 
 
 //fix adding of extra shelves for when number is <9
-//styling
+//font of bookcases
+//format dialog inputs, and make custom checkbox
+//format add button to look sexier
+//add icons to the 
 
 
 
