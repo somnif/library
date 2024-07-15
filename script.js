@@ -2,7 +2,7 @@ let myLibrary = [];
 
 const bookPrototype = {
     info() {
-        return this.title + " by " + this.author 
+        return this.title + " by " + this.author + ". " + this.pages + " pages."
         // + ", " + this.pages + " pages. " + (this.read ? "Read." : "Not read yet.");
     },
     toggleRead() {
