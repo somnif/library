@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Rowdies:wght@300;400;700&display=swap');
 
+
+:root {
+    --light-brown: #936A42;
+    --mid-brown: #965a22;
+    --dark-brown: #61452A;
+}
 body {
     background-attachment: fixed;
     background-image: url(./img/background.png);
@@ -12,13 +18,14 @@ body {
 
 .bookcase {
     margin: 100px auto;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: "Rowdies", cursive;
-    font-weight: bold;
-    color: rgba(0,0,0,0.6);
+    font-weight: 600;
+    color: rgba(0,0,0,0.55);
     width: 50%;
     min-height: 80%;
-    background-color: #936A42;
+    background-color: var(--light-brown);
+    background-image: url(http://www.transparenttextures.com/patterns/wood-pattern.png);
     box-shadow: 0px 20px 40px 20px rgba(19, 18, 18, 0.59);
     display: grid;
     grid-template: 3em repeat(5, 1fr) / repeat(3, 1fr);
@@ -40,12 +47,13 @@ body {
 }
 
 .bookshelf {
-    background-color: #61452a;
+    background-color: var(--dark-brown);
     display: grid;
     grid-template-columns: 1fr 40px 40px;
     gap: 1em;
     padding: 1em;
     box-shadow: inset 6px 9px 4px rgba(20, 20, 20, 0.3);
+    overflow: hidden;
 }
 
 .bookshelf>div:first-child {
@@ -64,6 +72,7 @@ body {
     align-self: end;
     justify-self: end;
     opacity: 70%;
+    cursor: pointer;
 }
 
 .read-button {
@@ -96,7 +105,7 @@ body {
     font-family: "Rowdies";
     font-size: 1.4em;
     font-weight: 400;
-    background-color: #965a22;
+    background-color: var(--mid-brown);
     opacity: 70%;
     display: grid;
     align-self: center;
@@ -106,7 +115,7 @@ body {
     color: rgba(0,0,0,0.5);
     border: none;
     box-shadow: 5px 5px 5px rgba(10, 10, 10, 0.4);
-
+    cursor: pointer;
 }
 
 .bookshelf>button:active {
@@ -134,27 +143,108 @@ body {
 
 dialog {
     padding: 2em;
-    background-color: #965a22;
-    border: #61452a solid 3px;
+    background-color: var(--light-brown);
+    border: var(--dark-brown) solid 3px;
     border-radius: 2em;
 }
 
 dialog>form {
     display: grid;
-    grid-template: repeat(5, 1fr) / 1fr 1fr;
+    grid-template: repeat(4, 1fr) 1.5fr / 1fr 1fr;
     gap: 1em;
     align-items: center;
     justify-content: center;
 }
 
-
 dialog>form>p>label {
     margin-right: 2em;
+    font-family: "Playwrite CU";
 }
 
 dialog>form>p {
     grid-column: span 2;
     display: grid;
     grid-template-columns: 1fr 3fr;
+    align-items: center;
 }
 
+dialog>form>p>input[type="text"],
+dialog>form>p>input[type="number"] {
+    border-radius: 5px;
+    padding: 0.2em 1em;
+    background-color: var(--mid-brown);
+    align-self: center;
+    height: 40px;
+    outline:none;
+    border: 1px var(--dark-brown) solid;
+    box-sizing: border-box;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
+
+    &:focus {
+        border: var(--dark-brown) 3px solid;
+        
+    }
+
+    &:hover {
+        background-color: var(--mid-brown);
+    }
+}
+
+dialog>form>p>input[type="checkbox"] {
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
+    align-self: center;
+    justify-self: start;
+}
+
+#read {
+    appearance: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border: 1px solid var(--dark-brown);
+    border-radius: 0.2em;
+    background-color: var(--mid-brown);
+    outline: none;
+
+    &:focus {
+        border: 3px solid var(--dark-brown)
+    }
+}
+
+
+#read[type="checkbox"]::before {
+    margin: 0 auto;
+    content: "";
+    display: block;
+    height: 25px;
+    width: 25px;
+    transform: scale(0);
+    clip-path: polygon(30% 84%, 86% 5%, 92% 9%, 31% 100%, 0 61%, 7% 56%);
+    background-color: var(--dark-brown);
+
+}
+
+#read[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+form>button {
+    outline: none;
+    padding:0.5em;
+    box-sizing: border-box;
+    font-family: "Rowdies";
+    font-weight: 400;
+    background-color: var(--dark-brown);
+    border-radius: 1em;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(10, 10, 10, 0.4);
+
+    &:hover {
+        background-color: var(--mid-brown);
+    }
+}

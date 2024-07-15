@@ -153,12 +153,8 @@ const toggleRead = (book) => {
 draw();
 
 
-//fix adding of extra shelves for when number is <9
-//font of bookcases
 //format dialog inputs, and make custom checkbox
-//format add button to look sexier
-//add icons to the 
-
+//add dialog to show book information
 
 
 
