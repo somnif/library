@@ -1,23 +1,22 @@
 let myLibrary = [];
 
-const bookPrototype = {
+class Book {
+    constructor(author, title, pages, read) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
+
     info() {
-        return this.title + " by " + this.author + ". " + this.pages + " pages."
-        // + ", " + this.pages + " pages. " + (this.read ? "Read." : "Not read yet.");
-    },
+        return `${this.title} by ${this.author}. ${this.pages} pages.`
+    }
+
     toggleRead() {
         this.read = !this.read;
     }
 }
 
-function Book(author, title, pages, read) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-}
-
-Object.assign(Book.prototype, bookPrototype)
 
 const addBookToLibrary = (author, title, pages, read) => {
     const newBook = new Book(author, title, pages, read);
